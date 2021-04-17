@@ -4,33 +4,46 @@ import 'package:list_contact/screens/contact/create.dart';
 
 const String _titleAppBar = 'Home';
 
-class ListContact extends StatelessWidget {
+class ListContact extends StatefulWidget {
+  final List<Person> _listPerson = [];
+
+  @override
+  _ListContactState createState() => _ListContactState();
+
+}
+
+class _ListContactState extends State<ListContact> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(_titleAppBar),
       ),
-      body: Column(
-        children: [
-          ItemContact(Person('Bruno Freitas', 'Aracaju')),
-          ItemContact(Person('Maria Joaquina', 'São Paulo')),
-          ItemContact(Person('Carla Souza', 'Bahia')),
-        ],
+      body: ListView.builder(
+        itemCount: widget._listPerson.length,
+        itemBuilder: (context, indice) {
+          final person = widget._listPerson[indice];
+          return ItemContact(person);
+        },
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context){
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
             return CreatePerson();
-          })).then((person) {
-            if(person != null){
-
-            };
-          });
+          })).then((person) => upgrade(person));
         },
       ),
     );
+  }
+
+  void upgrade(person) {
+    if (person != null) {
+      setState(() {
+        widget._listPerson.add(person);
+      });
+    }
   }
 }
 

@@ -7,6 +7,8 @@ const _titleAppBar = 'Create Contact';
 const _rotuloCampName = 'Nome Completo';
 const _rotuloCampCity = 'Cidade';
 
+const _titleButton = 'Adicionar';
+
 class CreatePerson extends StatefulWidget {
   @override
   _CreatePersonState createState() => _CreatePersonState();
@@ -36,7 +38,7 @@ class _CreatePersonState extends State<CreatePerson> {
               Icons.home_sharp,
             ),
             ElevatedButton(
-              child: Text('Adicionar'),
+              child: Text(_titleButton),
               onPressed: () => createPerson(context),
             ),
           ],

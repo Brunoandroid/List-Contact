@@ -15,11 +15,10 @@ class Editor extends StatelessWidget {
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
-          icon:  Icon(icon),
+          icon: Icon(icon),
           labelText: textRotulo,
         ),
       ),
     );
   }
-
 }

@@ -8,5 +8,4 @@ class Person {
   String toString() {
     return 'Nome: $namePerson | Cidade: $city';
   }
-
 }
