@@ -23,7 +23,11 @@ class ListContact extends StatelessWidget {
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return CreatePerson();
-          })).then((value) => null);
+          })).then((person) {
+            if(person != null){
+
+            };
+          });
         },
       ),
     );
